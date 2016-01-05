@@ -29,16 +29,12 @@ int main( int argc, char *argv[] )
     return EXIT_FAILURE;
   }
 
-  /* XXX your code here */
-  
-  /* construct UDP socket */
-  
-  /* "bind" the socket to host "0", port "0" */
+  UDPSocket sock;
+  sock.bind(Address("127.0.0.1", "0"));
+  cerr << sock.local_address().ip() << " " << sock.local_address().port() << endl;
 
-  /* print out the local address to standard error (cerr) */
-  /* the output should look something like "0.0.0.0 12345\n" */
-
-  /* receive one UDP datagram, and print out the payload */
+  UDPSocket::received_datagram client_data = sock.recv();
+  cout << client_data.payload;
 
   return EXIT_SUCCESS;
 }
