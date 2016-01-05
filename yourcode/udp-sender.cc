@@ -33,10 +33,13 @@ int main( int argc, char *argv[] )
   /* XXX your code here */
   
   /* construct UDP socket */
+  UDPSocket socket;
+  Address peer(host, port);
 
   /* connect the socket to the given host and port */
-
   /* send payload */
+  socket.sendto(peer, "Hello, world.");
+
 
   return EXIT_SUCCESS;
 }
