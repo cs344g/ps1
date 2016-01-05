@@ -1,7 +1,7 @@
 CS 344G Warm-up 1 (due January 11)
+==================================
 
 Expected completion time: <3 hours
-##################################
 
 Your mission, should you choose to accept it, is to make a simple UDP
 sender that sends a datagram containing the payload "Hello, world.",
