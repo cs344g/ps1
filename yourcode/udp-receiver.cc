@@ -19,8 +19,7 @@
 
 using namespace std;
 
-int main( int argc, char *argv[] )
-{
+int main( int argc, char *argv[] ) {
   /* check the command-line arguments */
   if ( argc < 1 ) { abort(); } /* for sticklers */
 
@@ -29,16 +28,28 @@ int main( int argc, char *argv[] )
     return EXIT_FAILURE;
   }
 
-  /* XXX your code here */
-  
+  // Binds to local address 0:0
+  Address local("0", "0");
+
   /* construct UDP socket */
-  
+  UDPSocket socket;
+
+  /* allow local address to be reused sooner, at the cost of some robustness */
+  socket.set_reuseaddr();
+
   /* "bind" the socket to host "0", port "0" */
+  socket.bind(local);
 
   /* print out the local address to standard error (cerr) */
+  cerr  << socket.local_address().ip() << " "
+        << socket.local_address().port() << endl;
   /* the output should look something like "0.0.0.0 12345\n" */
 
   /* receive one UDP datagram, and print out the payload */
+  UDPSocket::received_datagram data = socket.recv();
+
+  cout << data.payload;
+
 
   return EXIT_SUCCESS;
 }
