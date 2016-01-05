@@ -30,7 +30,7 @@ int main( int argc, char *argv[] )
   }
 
   UDPSocket sock;
-  sock.bind(Address("127.0.0.1", "0"));
+  sock.bind(Address("0", "0"));
   cerr << sock.local_address().ip() << " " << sock.local_address().port() << endl;
 
   UDPSocket::received_datagram client_data = sock.recv();
