@@ -28,7 +28,7 @@ int main( int argc, char *argv[] ) {
     return EXIT_FAILURE;
   }
 
-  // Binds to local address 0:0
+  /* Binds to local address 0:0 */
   Address local("0", "0");
 
   /* construct UDP socket */
@@ -43,13 +43,12 @@ int main( int argc, char *argv[] ) {
   /* print out the local address to standard error (cerr) */
   cerr  << socket.local_address().ip() << " "
         << socket.local_address().port() << endl;
-  /* the output should look something like "0.0.0.0 12345\n" */
 
   /* receive one UDP datagram, and print out the payload */
   UDPSocket::received_datagram data = socket.recv();
 
+  /* Output the payload to std::cout */
   cout << data.payload;
-
 
   return EXIT_SUCCESS;
 }
