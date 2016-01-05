@@ -1,0 +1,8 @@
+language: cpp
+sudo: required
+services: docker
+
+script:
+  - ./autogen.sh
+  - ./configure
+  - make distcheck || (cat cs344g-warmup1-1.0/_build/tests/test-suite.log && exit 1)
