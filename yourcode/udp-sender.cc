@@ -14,6 +14,8 @@
 #include <cstdlib>
 
 #include "socket.hh"
+#include "simple.pb.h"
+#include "simple.grpc.pb.h"
 
 using namespace std;
 
@@ -30,6 +32,7 @@ int main( int argc, char *argv[] )
   /* fetch command-line arguments */
   const string host { argv[ 1 ] }, port { argv[ 2 ] };
 
+  EchoRequest er;
   /* XXX your code here */
   
   /* construct UDP socket */
