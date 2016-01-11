@@ -1,8 +1,8 @@
 source = simple.proto
 
-AM_CPPFLAGS = $(protobuf_CFLAGS)
-
 SUFFIXES = .proto .pb.cc
+AM_CPPFLAGS = -I$(srcdir)/../third_party/grpc/third_party/protobuf/src
+PROTOC = ../third_party/grpc/bins/opt/protobuf/protoc
 
 .proto.pb.cc:
 	$(AM_V_GEN)$(PROTOC) --cpp_out=. -I$(srcdir) $<
