@@ -14,8 +14,8 @@ clean-local:
 install-data-local:
 	true
 install-exec-local:
-	cd grpc && $(MAKE) $(AM_MAKEFLAGS) install_c install_cxx install-plugins
+	true
 uninstall-local:
-	cd grpc && $(MAKE) $(AM_MAKEFLAGS) uninstall
+	true
 
 EXTRA_DIST = grpc
