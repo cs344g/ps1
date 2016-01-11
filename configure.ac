@@ -27,5 +27,5 @@ AC_PROG_RANLIB
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile third_party/Makefile src/Makefile protobufs/Makefile yourcode/Makefile tests/Makefile])
+AC_CONFIG_FILES([Makefile third_party/Makefile src/Makefile protobufs/Makefile yourcode/Makefile])
 AC_OUTPUT
