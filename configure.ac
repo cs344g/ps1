@@ -20,6 +20,7 @@ AC_PROG_CXX
 AC_PROG_RANLIB
 
 # Checks for libraries.
+PKG_CHECK_MODULES([ZLIB], [zlib])
 
 # Checks for header files.
 

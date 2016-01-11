@@ -1,8 +1,8 @@
 all-local:
 @BLANK@ifeq ($(srcdir),$(builddir))
-	cd grpc && $(MAKE) $(AM_MAKEFLAGS) static_cxx plugins
+	cd grpc && $(MAKE) $(AM_MAKEFLAGS) static_c static_cxx plugins
 @BLANK@else
-	cp -dR --no-preserve=mode $(srcdir)/grpc . && cd grpc && $(MAKE) $(AM_MAKEFLAGS) static_cxx plugins
+	cp -dR --no-preserve=mode $(srcdir)/grpc . && cd grpc && $(MAKE) $(AM_MAKEFLAGS) static_c static_cxx plugins
 @BLANK@endif
 
 check-local:
@@ -14,7 +14,7 @@ clean-local:
 install-data-local:
 	true
 install-exec-local:
-	cd grpc && $(MAKE) $(AM_MAKEFLAGS) install_cxx install-plugins
+	cd grpc && $(MAKE) $(AM_MAKEFLAGS) install_c install_cxx install-plugins
 uninstall-local:
 	cd grpc && $(MAKE) $(AM_MAKEFLAGS) uninstall
 
