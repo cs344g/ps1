@@ -74,10 +74,10 @@ void RunServer() {
   builder.RegisterService(&service);
   // Finally assemble the server.
   unique_ptr<Server> server(builder.BuildAndStart());
-  cout << "Server listening on " << server_address << endl;
+  cerr << "Server listening on " << server_address << endl;
 
   thread newthread( [&] () {
-      this_thread::sleep_for( chrono::seconds( 2 ) );
+      this_thread::sleep_for( chrono::seconds( 5 ) );
       server->Shutdown();
     } );
   
