@@ -15,8 +15,8 @@ Makefile.in
 /missing
 .deps
 /stamp-h1
-/yourcode/udp-sender
-/yourcode/udp-receiver
+/yourcode/greeter_client
+/yourcode/greeter_server
 /compile
 /test-driver
 /tests/*.log
