@@ -3,9 +3,11 @@
 
 AC_PREREQ([2.68])
 AC_INIT([protobuf-test], [0.1], [keithw@cs.stanford.edu])
-AM_INIT_AUTOMAKE([foreign])
+AM_INIT_AUTOMAKE([foreign tar-ustar])
 AC_CONFIG_SRCDIR([src/address.hh])
 AC_CONFIG_HEADERS([config.h])
+
+BLANK=''; AC_SUBST(BLANK)
 
 # Add picky CXXFLAGS
 CXX11_FLAGS="-std=c++11 -pthread"
