@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
-AC_INIT([cs344g-warmup1], [1.0], [keithw@cs.stanford.edu])
+AC_INIT([protobuf-test], [0.1], [keithw@cs.stanford.edu])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_SRCDIR([src/address.hh])
 AC_CONFIG_HEADERS([config.h])
@@ -17,12 +17,7 @@ AC_SUBST([PICKY_CXXFLAGS])
 AC_PROG_CXX
 AC_PROG_RANLIB
 
-AC_PATH_PROG([PROTOC], [protoc], [])
-AS_IF([test x"$PROTOC" = x],
-  [AC_MSG_ERROR([cannot find protoc, the Protocol Buffers compiler])])
-
 # Checks for libraries.
-PKG_CHECK_MODULES([PROTOBUF], [protobuf])
 
 # Checks for header files.
 
@@ -30,5 +25,5 @@ PKG_CHECK_MODULES([PROTOBUF], [protobuf])
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile src/Makefile protobufs/Makefile yourcode/Makefile tests/Makefile])
+AC_CONFIG_FILES([Makefile third_party/Makefile src/Makefile protobufs/Makefile yourcode/Makefile tests/Makefile])
 AC_OUTPUT
