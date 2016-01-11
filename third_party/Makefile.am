@@ -8,7 +8,11 @@ all-local:
 check-local:
 	true
 clean-local:
+@BLANK@ifeq ($(srcdir),$(builddir))
 	cd grpc && $(MAKE) $(AM_MAKEFLAGS) clean
+@BLANK@else
+	rm -rf grpc
+@BLANK@endif
 
 # Assuming the package knows how to install itself
 install-data-local:
