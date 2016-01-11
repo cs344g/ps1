@@ -4,13 +4,13 @@ message EchoRequest {
   optional bytes request_text = 1;
 }
 
-message EchoReply {
+message QuitRequest {}
+
+message GeneralReply {
   optional bytes reply_text = 1;
 }
 
-message QuitRequest {
-}
-
-message QuitReply {
-  optional bytes reply_text = 1;
+service SimpleService {
+  rpc Echo (EchoRequest) returns (GeneralReply);
+  rpc Quit (QuitRequest) returns (GeneralReply);
 }
