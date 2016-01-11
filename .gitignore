@@ -20,3 +20,5 @@ Makefile.in
 /test-driver
 /tests/*.log
 /tests/*.trs
+/protobufs/simple.pb.h
+/protobufs/simple.pb.cc

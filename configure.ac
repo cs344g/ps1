@@ -17,7 +17,12 @@ AC_SUBST([PICKY_CXXFLAGS])
 AC_PROG_CXX
 AC_PROG_RANLIB
 
+AC_PATH_PROG([PROTOC], [protoc], [])
+AS_IF([test x"$PROTOC" = x],
+  [AC_MSG_ERROR([cannot find protoc, the Protocol Buffers compiler])])
+
 # Checks for libraries.
+PKG_CHECK_MODULES([PROTOBUF], [protobuf])
 
 # Checks for header files.
 
@@ -25,5 +30,5 @@ AC_PROG_RANLIB
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile src/Makefile yourcode/Makefile tests/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile protobufs/Makefile yourcode/Makefile tests/Makefile])
 AC_OUTPUT
