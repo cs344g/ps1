@@ -2,10 +2,12 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
-AC_INIT([cs344g-warmup1], [1.0], [keithw@cs.stanford.edu])
-AM_INIT_AUTOMAKE([foreign])
+AC_INIT([protobuf-test], [0.1], [keithw@cs.stanford.edu])
+AM_INIT_AUTOMAKE([foreign tar-ustar])
 AC_CONFIG_SRCDIR([src/address.hh])
 AC_CONFIG_HEADERS([config.h])
+
+BLANK=''; AC_SUBST(BLANK)
 
 # Add picky CXXFLAGS
 CXX11_FLAGS="-std=c++11 -pthread"
@@ -18,6 +20,7 @@ AC_PROG_CXX
 AC_PROG_RANLIB
 
 # Checks for libraries.
+PKG_CHECK_MODULES([ZLIB], [zlib])
 
 # Checks for header files.
 
@@ -25,5 +28,5 @@ AC_PROG_RANLIB
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile src/Makefile yourcode/Makefile tests/Makefile])
+AC_CONFIG_FILES([Makefile third_party/Makefile src/Makefile protobufs/Makefile yourcode/Makefile tests/Makefile])
 AC_OUTPUT

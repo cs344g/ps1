@@ -1,1 +1,1 @@
-SUBDIRS = src yourcode tests
+SUBDIRS = third_party src protobufs yourcode tests
