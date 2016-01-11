@@ -34,10 +34,14 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <chrono>
+#include <thread>
 
 #include <grpc++/grpc++.h>
 
 #include "simple.grpc.pb.h"
+
+using namespace std;
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -49,16 +53,17 @@ using helloworld::Greeter;
 
 // Logic and data behind the server's behavior.
 class GreeterServiceImpl final : public Greeter::Service {
-  Status SayHello(ServerContext* context __attribute((unused)) , const HelloRequest* request,
+  Status SayHello(ServerContext* context __attribute((unused)), const HelloRequest* request,
                   HelloReply* reply) override {
-    std::string prefix("Hello ");
+    string prefix("Hello ");
     reply->set_message(prefix + request->name());
+
     return Status::OK;
   }
 };
 
 void RunServer() {
-  std::string server_address("0.0.0.0:50051");
+  string server_address("0.0.0.0:50051");
   GreeterServiceImpl service;
 
   ServerBuilder builder;
@@ -68,12 +73,18 @@ void RunServer() {
   // clients. In this case it corresponds to an *synchronous* service.
   builder.RegisterService(&service);
   // Finally assemble the server.
-  std::unique_ptr<Server> server(builder.BuildAndStart());
-  std::cout << "Server listening on " << server_address << std::endl;
+  unique_ptr<Server> server(builder.BuildAndStart());
+  cout << "Server listening on " << server_address << endl;
 
+  thread newthread( [&] () {
+      this_thread::sleep_for( chrono::seconds( 2 ) );
+      server->Shutdown();
+    } );
+  
   // Wait for the server to shutdown. Note that some other thread must be
   // responsible for shutting down the server for this call to ever return.
   server->Wait();
+  newthread.join();
 }
 
 int main(int argc __attribute((unused)) , char** argv __attribute((unused)) ) {
