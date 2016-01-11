@@ -6,6 +6,7 @@ Makefile.in
 /autom4te.cache/
 /config.h
 /config.h.in
+/config.h.in~
 /config.log
 /config.status
 /configure
@@ -22,3 +23,5 @@ Makefile.in
 /tests/*.trs
 /protobufs/simple.pb.h
 /protobufs/simple.pb.cc
+/protobufs/simple.grpc.pb.h
+/protobufs/simple.grpc.pb.cc
