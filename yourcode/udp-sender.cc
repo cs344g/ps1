@@ -30,13 +30,16 @@ int main( int argc, char *argv[] )
   /* fetch command-line arguments */
   const string host { argv[ 1 ] }, port { argv[ 2 ] };
 
-  /* XXX your code here */
+  /* Pan Hu your code here  */
   
   /* construct UDP socket */
+  UDPSocket socket;
 
   /* connect the socket to the given host and port */
+  socket.connect( Address(host, port) );
 
   /* send payload */
+  socket.send("Hello, world.");
 
   return EXIT_SUCCESS;
 }
