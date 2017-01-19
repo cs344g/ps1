@@ -33,7 +33,7 @@ int main( int argc, char *argv[] )
   /* XXX your code here */
 
   /* construct UDP socket */
-  UDPSocket sock = UDPSocket() ; //on construit une socket
+  UDPSocket sock = UDPSocket() ;
 
   Address my_addr = Address("0.0.0.0",2224) ;
   sock.bind(my_addr) ;
@@ -44,7 +44,7 @@ int main( int argc, char *argv[] )
   sock.connect (dist_addr) ;
 
   /* send payload */
-  const string message = "Hello, world.\0" ;
+  const string message = "Hello, world." ;
   sock.send(message) ;
 
 

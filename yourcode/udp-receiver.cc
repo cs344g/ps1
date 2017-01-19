@@ -32,7 +32,7 @@ int main( int argc, char *argv[] )
   /* XXX your code here */
   
   /* construct UDP socket */
-  UDPSocket sock = UDPSocket() ; //on construit une socket
+  UDPSocket sock = UDPSocket() ;
   Address addr = Address("0.0.0.0",4442) ;
 
   /* "bind" the socket to host "0", port "0" */
