@@ -35,10 +35,6 @@ int main( int argc, char *argv[] )
   /* construct UDP socket */
   UDPSocket sock = UDPSocket() ;
 
-  Address my_addr = Address("0.0.0.0",2224) ;
-  sock.bind(my_addr) ;
-  sock.set_reuseaddr () ;
-
   /* connect the socket to the given host and port */
   Address dist_addr = Address(host,port) ;
   sock.connect (dist_addr) ;
