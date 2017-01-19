@@ -31,12 +31,18 @@ int main( int argc, char *argv[] )
   const string host { argv[ 1 ] }, port { argv[ 2 ] };
 
   /* XXX your code here */
-  
+
   /* construct UDP socket */
+  UDPSocket sock = UDPSocket() ;
 
   /* connect the socket to the given host and port */
+  Address dist_addr = Address(host,port) ;
+  sock.connect (dist_addr) ;
 
   /* send payload */
+  const string message = "Hello, world." ;
+  sock.send(message) ;
+
 
   return EXIT_SUCCESS;
 }
