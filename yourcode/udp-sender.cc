@@ -36,8 +36,7 @@ int main( int argc, char *argv[] )
   UDPSocket sock;
 
   /* connect the socket to the given host and port */
-  uint16_t i = stoi(port, nullptr);
-  sock.connect({host, i});
+  sock.connect({host, port});
 
   /* send payload */
   sock.send("Hello, world.");
