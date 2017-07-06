@@ -33,10 +33,13 @@ int main( int argc, char *argv[] )
   /* XXX your code here */
   
   /* construct UDP socket */
+  UDPSocket sock;
 
   /* connect the socket to the given host and port */
+  sock.connect({host, port});
 
   /* send payload */
+  sock.send("Hello, world.");
 
   return EXIT_SUCCESS;
 }

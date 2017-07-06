@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <unistd.h>
 
 #include "socket.hh"
 
@@ -32,13 +33,18 @@ int main( int argc, char *argv[] )
   /* XXX your code here */
   
   /* construct UDP socket */
+  UDPSocket sock;
   
   /* "bind" the socket to host "0", port "0" */
+  sock.bind({"0", 0});
 
   /* print out the local address to standard error (cerr) */
   /* the output should look something like "0.0.0.0 12345\n" */
+  cerr << sock.local_address().ip() << " " << sock.local_address().port() << "\n";
 
   /* receive one UDP datagram, and print out the payload */
+  UDPSocket::received_datagram dat = sock.recv();
+  cout << dat.payload;
 
   return EXIT_SUCCESS;
 }
